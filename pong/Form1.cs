@@ -10,11 +10,6 @@ using System.Windows.Forms;
 
 namespace pong
 {
-    class Ball : Label
-    {
-
-    }
-
     public partial class Form1 : Form
     {
         static bool lef = false;
@@ -50,5 +45,9 @@ namespace pong
             Text = ball.Location.Y.ToString()+" speed: "+ballspeed;
             ball.Location = new Point(Math.Min(Math.Max(ball.Location.X,0),paddle.Location.Y), ball.Location.Y + ballspeed);
         }
+    }
+    class Ball : Label
+    {
+        // looking to create custom ball class with static ball speed ect.
     }
 }
