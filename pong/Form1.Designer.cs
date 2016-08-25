@@ -75,8 +75,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 461);
             this.Controls.Add(this.ball);
-            this.Controls.Add(this.output);
             this.Controls.Add(this.paddle);
+            this.Controls.Add(this.output);
             this.Name = "Pong";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDown);
