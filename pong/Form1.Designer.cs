@@ -1,6 +1,6 @@
 ﻿namespace pong
 {
-    partial class Form1
+    partial class Pong
     {
         /// <summary>
         /// Required designer variable.
@@ -69,15 +69,15 @@
             this.output.TabIndex = 2;
             this.output.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 461);
-            this.Controls.Add(this.output);
             this.Controls.Add(this.ball);
+            this.Controls.Add(this.output);
             this.Controls.Add(this.paddle);
-            this.Name = "Form1";
+            this.Name = "Pong";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Release);
