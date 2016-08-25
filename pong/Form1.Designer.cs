@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pong));
             this.paddle = new System.Windows.Forms.Label();
             this.update = new System.Windows.Forms.Timer(this.components);
             this.ball = new System.Windows.Forms.Label();
@@ -77,8 +78,9 @@
             this.Controls.Add(this.ball);
             this.Controls.Add(this.paddle);
             this.Controls.Add(this.output);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pong";
-            this.Text = "Form1";
+            this.Text = "Pong";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Release);
             this.ResumeLayout(false);
