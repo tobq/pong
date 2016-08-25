@@ -14,12 +14,14 @@ namespace pong
     {
         static bool lef = false;
         static bool rig = false;
+        static bool ballL = false;
         static int padspeed = 5;
         static int ballspeed = 5;
 
         public Form1()
         {
             InitializeComponent();
+            paddle.Location = new Point((ClientRectangle.Width / 2), ClientRectangle.Height - 50);
         }
 
         private void FormDown(object sender, KeyEventArgs e)
@@ -41,9 +43,18 @@ namespace pong
             if (rig) loc = new Point(Math.Max(Math.Min(loc.X + padspeed, ClientRectangle.Width - paddle.Width), 0), ClientRectangle.Height - 50);
             paddle.Location = loc;
 
-            if (ball.Location.Y <= 0 || ball.Location.Y >= paddle.Location.Y-ball.Height) ballspeed *= -1;
-            Text = ball.Location.Y.ToString()+" speed: "+ballspeed;
-            ball.Location = new Point(Math.Min(Math.Max(ball.Location.X,0),paddle.Location.Y), ball.Location.Y + ballspeed);
+            Text = ball.Location.Y.ToString() + " speed: " + ballspeed;
+            ball.Location = new Point(ballL ? ball.Location.X - Math.Abs(ballspeed): ball.Location.X + Math.Abs(ballspeed), Math.Max(Math.Min(ball.Location.Y + ballspeed, ClientRectangle.Height), 0));
+            if (ball.Location.Y <= 0) ballspeed *= -1;
+            else if (ball.Location.Y >= paddle.Location.Y - ball.Height && ball.Location.X + ball.Width >= paddle.Location.X && ball.Location.X <= paddle.Location.X + paddle.Width - ball.Width && ball.Location.Y <= paddle.Location.Y) ballspeed *= -1;
+            if (ball.Location.X <= 0) ballL = false;
+            else if (ball.Location.X >= ClientRectangle.Width - ball.Width) ballL = true;
+
+            if (ball.Location.Y >= ClientRectangle.Height)
+            {
+                update.Stop();
+                output.Text = "You've Lost";
+            }
         }
     }
     class Ball : Label

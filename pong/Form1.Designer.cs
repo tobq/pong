@@ -30,24 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             this.paddle = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.update = new System.Windows.Forms.Timer(this.components);
             this.ball = new System.Windows.Forms.Label();
+            this.output = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // paddle
             // 
             this.paddle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.paddle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paddle.Location = new System.Drawing.Point(193, 421);
+            this.paddle.Location = new System.Drawing.Point(186, 403);
             this.paddle.Name = "paddle";
             this.paddle.Size = new System.Drawing.Size(200, 20);
             this.paddle.TabIndex = 0;
             // 
-            // timer1
+            // update
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 16;
-            this.timer1.Tick += new System.EventHandler(this.frame);
+            this.update.Enabled = true;
+            this.update.Interval = 16;
+            this.update.Tick += new System.EventHandler(this.frame);
             // 
             // ball
             // 
@@ -57,11 +58,23 @@
             this.ball.Size = new System.Drawing.Size(30, 30);
             this.ball.TabIndex = 1;
             // 
+            // output
+            // 
+            this.output.Dock = System.Windows.Forms.DockStyle.Top;
+            this.output.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.output.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.output.Location = new System.Drawing.Point(0, 0);
+            this.output.Name = "output";
+            this.output.Size = new System.Drawing.Size(584, 40);
+            this.output.TabIndex = 2;
+            this.output.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.output);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.paddle);
             this.Name = "Form1";
@@ -75,8 +88,9 @@
         #endregion
 
         private System.Windows.Forms.Label paddle;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer update;
         private System.Windows.Forms.Label ball;
+        private System.Windows.Forms.Label output;
     }
 }
 
