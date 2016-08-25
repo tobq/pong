@@ -45,7 +45,7 @@ namespace pong
 
             ball.Location = new Point(ballL ? ball.Location.X - Math.Abs(ballspeed): ball.Location.X + Math.Abs(ballspeed), Math.Max(Math.Min(ball.Location.Y + ballspeed, ClientRectangle.Height), 0));
             if (ball.Location.Y <= 0) ballspeed *= -1;
-            else if (ball.Location.Y >= paddle.Location.Y - ball.Height && ball.Location.X + ball.Width >= paddle.Location.X && ball.Location.X <= paddle.Location.X + paddle.Width - ball.Width && ball.Location.Y <= paddle.Location.Y) ballspeed *= -1;
+            else if (ball.Location.Y >= paddle.Location.Y - ball.Height && ball.Location.X + ball.Width >= paddle.Location.X && ball.Location.X <= paddle.Location.X + paddle.Width - ball.Width && ball.Location.Y <= paddle.Location.Y) ballspeed = - Math.Abs(ballspeed);
             if (ball.Location.X <= 0) ballL = false;
             else if (ball.Location.X >= ClientRectangle.Width - ball.Width) ballL = true;
 
